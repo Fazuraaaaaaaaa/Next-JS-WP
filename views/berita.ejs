@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berita & Informasi - M1 Ekosistem</title>
+    <meta name="description" content="Kumpulan informasi terkini, tips, dan pembaruan seputar dunia otomotif dan industri dari M1 Ekosistem.">
+    <meta property="og:title" content="Berita & Informasi - M1 Ekosistem">
+    <meta property="og:description" content="Kumpulan informasi terkini, tips, dan pembaruan dari M1 Ekosistem.">
+    <meta property="og:type" content="website">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b1120',
+                            950: '#020617',
+                        },
+                        electric: '#2563eb',
+                        racing: '#dc2626',
+                        silver: '#94a3b8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .glass-nav {
+            background: rgba(11, 17, 32, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-gray-100 antialiased selection:bg-electric selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navbar: Sticky, Glassmorphism -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-3xl font-extrabold tracking-tighter text-white flex items-center gap-3">
+                        <span>M<span class="text-electric">1</span></span>
+                        <span class="text-base font-light tracking-[0.2em] text-silver uppercase border-l border-white/20 pl-3">Ekosistem</span>
+                    </a>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="/" class="text-gray-300 hover:text-white font-medium transition-colors">Beranda</a>
+                    <a href="/#layanan" class="text-gray-300 hover:text-white font-medium transition-colors">Layanan</a>
+                    <a href="/berita" class="text-white font-medium transition-colors border-b-2 border-electric pb-1">Berita</a>
+                    <a href="/tentang" class="text-gray-300 hover:text-white font-medium transition-colors">Tentang Kami</a>
+                </div>
+                <!-- CTA -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/6285647502098" target="_blank" class="bg-electric hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg shadow-electric/25 hover:shadow-electric/40 hover:-translate-y-0.5">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-down">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-6">Berita <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric to-cyan-400">Terbaru</span></h1>
+                <p class="text-xl text-silver max-w-2xl mx-auto">Kumpulan informasi terkini, tips, dan pembaruan seputar dunia otomotif dan industri dari M1 Ekosistem.</p>
+            </div>
+
+            <% if (error) { %>
+                <div class="bg-racing/10 border border-racing/30 p-8 rounded-2xl text-center">
+                    <svg class="w-16 h-16 text-racing mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    <p class="text-white text-lg"><%= error %></p>
+                </div>
+            <% } else if (posts && posts.length > 0) { %>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <% posts.forEach(post => { %>
+                        <article class="bg-navy-900 rounded-2xl border border-white/5 overflow-hidden group hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-electric/10 flex flex-col h-full" data-aos="fade-up">
+                            <div class="aspect-w-16 aspect-h-10 bg-navy-800 relative overflow-hidden shrink-0">
+                                <% if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) { %>
+                                    <img src="<%= post._embedded['wp:featuredmedia'][0].source_url %>" alt="<%= post.title.rendered %>" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <% } else { %>
+                                    <div class="w-full h-56 flex items-center justify-center bg-navy-800/50">
+                                        <span class="text-silver/50 font-medium">M1 Media</span>
+                                    </div>
+                                <% } %>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent opacity-80"></div>
+                            </div>
+                            
+                            <div class="p-6 relative -mt-8 flex flex-col flex-grow">
+                                <div class="inline-block bg-electric text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4 shadow-lg shadow-electric/30 self-start">
+                                    Berita
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-electric transition-colors">
+                                    <a href="/berita/<%= post.slug %>" class="focus:outline-none">
+                                        <span class="absolute inset-0"></span>
+                                        <%- sanitize(post.title.rendered) %>
+                                    </a>
+                                </h3>
+                                <div class="text-silver text-sm mb-6 line-clamp-3 flex-grow">
+                                    <%- sanitize(post.excerpt.rendered) %>
+                                </div>
+                                <div class="flex items-center text-sm font-semibold text-white group-hover:text-electric transition-colors mt-auto">
+                                    Baca Selengkapnya 
+                                    <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </div>
+                            </div>
+                        </article>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <div class="text-center py-20 bg-navy-900/50 rounded-3xl border border-white/5 border-dashed">
+                    <p class="text-silver text-lg">Belum ada pembaruan berita saat ini.</p>
+                </div>
+            <% } %>
+        </section>
+    </main>
+
+    <!-- Footer Consistent -->
+    <%- include('partials/footer') %>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+    </script>
+</body>
+</html>

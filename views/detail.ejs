@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%- post ? sanitize(post.title.rendered) : 'Error' %> - M1 Ekosistem</title>
+    <% if (post) { %>
+    <meta name="description" content="<%- sanitize(post.excerpt.rendered).replace(/<[^>]+>/g, '').trim().substring(0, 155) %>">
+    <meta property="og:title" content="<%- sanitize(post.title.rendered) %>">
+    <meta property="og:description" content="<%- sanitize(post.excerpt.rendered).replace(/<[^>]+>/g, '').trim().substring(0, 155) %>">
+    <% if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) { %>
+    <meta property="og:image" content="<%= post._embedded['wp:featuredmedia'][0].source_url %>">
+    <% } %>
+    <meta property="og:type" content="article">
+    <% } else { %>
+    <meta name="description" content="Artikel tidak ditemukan.">
+    <% } %>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b1120',
+                            950: '#020617',
+                        },
+                        electric: '#2563eb',
+                        racing: '#dc2626',
+                        silver: '#94a3b8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .glass-nav {
+            background: rgba(11, 17, 32, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Custom WP styles for dark mode */
+        .wp-content img { max-width: 100%; height: auto; border-radius: 0.5rem; margin-top: 1.5rem; margin-bottom: 1.5rem; }
+        .wp-content p { margin-bottom: 1.25rem; line-height: 1.8; color: #cbd5e1; }
+        .wp-content h2, .wp-content h3 { color: #f8fafc; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; }
+        .wp-content a { color: #60a5fa; text-decoration: underline; }
+        .wp-content ul, .wp-content ol { margin-bottom: 1.25rem; padding-left: 1.5rem; color: #cbd5e1; }
+        .wp-content ul { list-style-type: disc; }
+        .wp-content ol { list-style-type: decimal; }
+        .wp-content blockquote { border-left: 4px solid #2563eb; padding-left: 1rem; color: #94a3b8; font-style: italic; margin-bottom: 1.25rem; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 0 0.5rem 0.5rem 0; }
+    </style>
+</head>
+<body class="bg-navy-950 text-gray-100 antialiased flex flex-col min-h-screen">
+
+    <!-- Navbar: Sticky, Glassmorphism -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-3xl font-extrabold tracking-tighter text-white flex items-center gap-3">
+                        <span>M<span class="text-electric">1</span></span>
+                        <span class="text-base font-light tracking-[0.2em] text-silver uppercase border-l border-white/20 pl-3">Ekosistem</span>
+                    </a>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="/" class="text-gray-300 hover:text-white font-medium transition-colors">Beranda</a>
+                    <a href="/#layanan" class="text-gray-300 hover:text-white font-medium transition-colors">Layanan</a>
+                    <a href="/berita" class="text-gray-300 hover:text-white font-medium transition-colors">Berita</a>
+                    <a href="/tentang" class="text-gray-300 hover:text-white font-medium transition-colors">Tentang Kami</a>
+                </div>
+                <!-- CTA -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/6285647502098" target="_blank" class="bg-electric hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg shadow-electric/25 hover:shadow-electric/40 hover:-translate-y-0.5">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full">
+        <article class="bg-navy-900 rounded-3xl overflow-hidden shadow-2xl border border-white/5 relative">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-electric/10 rounded-bl-full pointer-events-none"></div>
+            
+            <% if (post) { %>
+                <!-- Image Header -->
+                <% if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) { %>
+                    <div class="w-full h-64 md:h-96 relative">
+                        <img src="<%= post._embedded['wp:featuredmedia'][0].source_url %>" alt="<%= post.title.rendered %>" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent"></div>
+                    </div>
+                <% } else { %>
+                    <div class="w-full h-32 md:h-48 bg-gradient-to-r from-navy-800 to-navy-950"></div>
+                <% } %>
+
+                <!-- Content -->
+                <div class="p-8 md:p-12 relative z-10">
+                    <header class="mb-10">
+                        <div class="flex items-center gap-4 mb-6 text-sm text-silver font-medium">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-electric/20 text-electric border border-electric/30">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path></svg>
+                                Berita
+                            </span>
+                            <span><%= new Date(post.date).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) %></span>
+                        </div>
+                        <h1 class="text-3xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+                            <%- sanitize(post.title.rendered) %>
+                        </h1>
+                    </header>
+
+                    <!-- WordPress Content rendered directly -->
+                    <div class="wp-content text-lg">
+                        <%- sanitize(post.content.rendered) %>
+                    </div>
+
+                    <div class="mt-12 pt-8 border-t border-white/5">
+                        <a href="/berita" class="inline-flex items-center gap-2 text-electric font-semibold hover:text-white transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                            Kembali ke Daftar Berita
+                        </a>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="p-12 text-center relative z-10">
+                    <svg class="w-16 h-16 text-racing mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    <h2 class="text-2xl font-bold text-white mb-2">Oops!</h2>
+                    <p class="text-silver"><%= error %></p>
+                    <a href="/berita" class="mt-6 inline-block bg-white/10 hover:bg-white/20 text-white px-6 py-2.5 rounded-full font-semibold transition-colors">Kembali ke Berita</a>
+                </div>
+            <% } %>
+        </article>
+    </main>
+
+    <!-- Footer Consistent -->
+    <%- include('partials/footer') %>
+</body>
+</html>

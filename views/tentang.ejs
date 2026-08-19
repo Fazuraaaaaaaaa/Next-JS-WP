@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - M1 Ekosistem</title>
+    <meta name="description" content="Pelajari lebih lanjut tentang M1 Ekosistem, profil perusahaan, kontak, dan lokasi kami di Sukoharjo.">
+    <meta property="og:title" content="Tentang Kami - M1 Ekosistem">
+    <meta property="og:description" content="Pelajari lebih lanjut tentang M1 Ekosistem, profil perusahaan, kontak, dan lokasi kami.">
+    <meta property="og:type" content="website">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b1120',
+                            950: '#020617',
+                        },
+                        electric: '#2563eb',
+                        racing: '#dc2626',
+                        silver: '#94a3b8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .glass-nav {
+            background: rgba(11, 17, 32, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-gray-100 antialiased selection:bg-electric selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navbar: Sticky, Glassmorphism -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-3xl font-extrabold tracking-tighter text-white flex items-center gap-3">
+                        <span>M<span class="text-electric">1</span></span>
+                        <span class="text-base font-light tracking-[0.2em] text-silver uppercase border-l border-white/20 pl-3">Ekosistem</span>
+                    </a>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="/" class="text-gray-300 hover:text-white font-medium transition-colors">Beranda</a>
+                    <a href="/#layanan" class="text-gray-300 hover:text-white font-medium transition-colors">Layanan</a>
+                    <a href="/berita" class="text-gray-300 hover:text-white font-medium transition-colors">Berita</a>
+                    <a href="/tentang" class="text-white font-medium transition-colors border-b-2 border-electric pb-1">Tentang Kami</a>
+                </div>
+                <!-- CTA -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/6285647502098" target="_blank" class="bg-electric hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg shadow-electric/25 hover:shadow-electric/40 hover:-translate-y-0.5">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20">
+        <!-- Hero Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 text-center relative">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-electric/20 rounded-full blur-[100px] pointer-events-none"></div>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-electric text-sm font-bold mb-6 uppercase tracking-widest relative z-10 backdrop-blur-sm">
+                Profil Perusahaan
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight mb-6 relative z-10">
+                Tentang <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric to-cyan-400">M1 Ekosistem</span>
+            </h1>
+            <p class="text-xl text-silver max-w-3xl mx-auto leading-relaxed relative z-10">
+                Kami adalah ekosistem terpadu yang memadukan keahlian di bidang otomotif, kimia industri, dan teknologi informasi untuk memberikan solusi komprehensif bagi kebutuhan Anda.
+            </p>
+        </section>
+
+        <!-- Informasi Section -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Kontak & Lokasi -->
+                <div class="bg-navy-900 rounded-3xl p-8 md:p-10 border border-white/5 shadow-2xl relative overflow-hidden group hover:border-white/10 transition-colors">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-electric/10 rounded-bl-full pointer-events-none transition-colors group-hover:bg-electric/20"></div>
+                    
+                    <h2 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-navy-800 text-electric flex items-center justify-center border border-white/5">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        Kontak & Lokasi
+                    </h2>
+
+                    <div class="space-y-6">
+                        <!-- Alamat -->
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-silver/50">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold mb-1">Alamat Utama</h3>
+                                <p class="text-silver leading-relaxed">
+                                    Jl. Anggrek No.2, Denokan, Jetis, Kec. Sukoharjo, Kabupaten Sukoharjo, Jawa Tengah 57511.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Telepon & CP -->
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-silver/50">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            </div>
+                            <div class="w-full">
+                                <h3 class="text-white font-semibold mb-2">Telepon & Kontak</h3>
+                                <ul class="space-y-2">
+                                    <li class="flex justify-between items-center text-silver border-b border-white/5 pb-2">
+                                        <span>Kantor / Telp</span>
+                                        <span class="text-white font-medium">0271-593187</span>
+                                    </li>
+                                    <li class="flex justify-between items-center text-silver border-b border-white/5 pb-2">
+                                        <span>Direktur PPDB (Informasi PPDB)</span>
+                                        <a href="https://wa.me/6285647502098" target="_blank" class="text-electric hover:text-blue-400 font-medium transition-colors">0856-4750-2098</a>
+                                    </li>
+                                    <li class="flex justify-between items-center text-silver">
+                                        <span>Admin Humas</span>
+                                        <a href="https://wa.me/6285171564293" target="_blank" class="text-electric hover:text-blue-400 font-medium transition-colors">0851-7156-4293</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="flex items-start gap-4">
+                            <div class="mt-1 text-silver/50">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <h3 class="text-white font-semibold mb-1">Email</h3>
+                                <p class="text-silver"><a href="mailto:smkmuh_skh@yahoo.co.id" class="hover:text-electric transition-colors">smkmuh_skh@yahoo.co.id</a></p>
+                                <p class="text-silver"><a href="mailto:skh.smkmuh1@gmail.com" class="hover:text-electric transition-colors">skh.smkmuh1@gmail.com</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Google Maps Embed -->
+                <div class="rounded-3xl overflow-hidden border border-white/5 shadow-2xl h-[400px] lg:h-auto min-h-[400px] relative">
+                    <iframe 
+                        src="https://maps.google.com/maps?q=Jl.%20Anggrek%20No.2,%20Denokan,%20Jetis,%20Kec.%20Sukoharjo,%20Kabupaten%20Sukoharjo,%20Jawa%20Tengah%2057511&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                        class="absolute inset-0 w-full h-full bg-navy-800"
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Consistent -->
+    <%- include('partials/footer') %>
+</body>
+</html>

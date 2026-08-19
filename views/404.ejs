@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Tidak Ditemukan - M1 Ekosistem</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b1120',
+                            950: '#020617',
+                        },
+                        electric: '#2563eb',
+                        racing: '#dc2626',
+                        silver: '#94a3b8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+    </style>
+</head>
+<body class="bg-navy-950 text-gray-100 antialiased selection:bg-electric selection:text-white flex flex-col min-h-screen">
+    
+    <main class="flex-grow flex items-center justify-center pt-10 pb-20 relative overflow-hidden">
+        <!-- Glow -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-electric/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-3xl mx-auto px-4 text-center relative z-10">
+            <h1 class="text-9xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-electric to-cyan-400 mb-6 drop-shadow-2xl">
+                404
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Oops! Halaman Tidak Ditemukan.</h2>
+            <p class="text-lg text-silver mb-10 max-w-xl mx-auto">
+                Maaf, halaman yang Anda cari mungkin telah dihapus, namanya diubah, atau sementara tidak tersedia.
+            </p>
+            <a href="/" class="inline-flex items-center gap-3 bg-electric hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold transition-all shadow-lg shadow-electric/25 hover:shadow-electric/40 hover:-translate-y-1">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Kembali ke Beranda
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer Consistent -->
+    <%- include('partials/footer') %>
+</body>
+</html>

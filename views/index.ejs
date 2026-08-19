@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M1 - Solusi Otomotif & Industrial Terpadu</title>
+    <meta name="description" content="M1 Ekosistem menawarkan solusi terpadu di bidang otomotif, kimia industri, dan teknologi informasi untuk performa maksimal.">
+    <meta property="og:title" content="M1 - Solusi Otomotif & Industrial Terpadu">
+    <meta property="og:description" content="M1 Ekosistem menawarkan solusi terpadu di bidang otomotif, kimia industri, dan teknologi informasi.">
+    <meta property="og:type" content="website">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0f172a',
+                            900: '#0b1120',
+                            950: '#020617',
+                        },
+                        electric: '#2563eb',
+                        racing: '#dc2626',
+                        silver: '#94a3b8',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Outfit', sans-serif; }
+        .glass-nav {
+            background: rgba(11, 17, 32, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.15);
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-float-delayed { animation: float 6s ease-in-out infinite; animation-delay: 2s; }
+        .animate-float-fast { animation: float 5s ease-in-out infinite; animation-delay: 1s; }
+        .animate-float-slow { animation: float 7s ease-in-out infinite; animation-delay: 3s; }
+        
+        .glass-oval {
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-navy-950 text-gray-100 antialiased selection:bg-electric selection:text-white">
+
+    <!-- Navbar: Sticky, Glassmorphism -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="/" class="text-3xl font-extrabold tracking-tighter text-white flex items-center gap-3">
+                        <span>M<span class="text-electric">1</span></span>
+                        <span class="text-base font-light tracking-[0.2em] text-silver uppercase border-l border-white/20 pl-3">Ekosistem</span>
+                    </a>
+                </div>
+                <!-- Menu -->
+                <div class="hidden md:flex space-x-10 items-center">
+                    <a href="#" class="text-white font-medium transition-colors border-b-2 border-electric pb-1">Beranda</a>
+                    <a href="#layanan" class="text-gray-300 hover:text-white font-medium transition-colors">Layanan</a>
+                    <a href="#berita" class="text-gray-300 hover:text-white font-medium transition-colors">Berita</a>
+                    <a href="/tentang" class="text-gray-300 hover:text-white font-medium transition-colors">Tentang Kami</a>
+                </div>
+                <!-- CTA -->
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/6285647502098" target="_blank" class="bg-electric hover:bg-blue-700 text-white px-6 py-2.5 rounded-full font-semibold transition-all shadow-lg shadow-electric/25 hover:shadow-electric/40 hover:-translate-y-0.5">
+                        Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
+        <!-- Abstract Background Shapes -->
+        <div class="absolute top-20 left-10 w-72 h-72 bg-electric/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="text-left" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-electric text-sm font-bold mb-8 uppercase tracking-widest backdrop-blur-sm">
+                        Solusi Terpadu Masa Depan
+                    </div>
+                    <h1 class="text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
+                        Performa Maksimal,<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-electric to-cyan-400">Tanpa Kompromi.</span>
+                    </h1>
+                    <p class="mt-4 text-lg md:text-xl text-silver leading-relaxed mb-10 max-w-lg">
+                        Dari perawatan otomotif premium hingga inovasi kimia industri dan teknologi informasi. M1 menghadirkan ekosistem layanan terintegrasi untuk bisnis dan personal Anda.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#layanan" class="bg-electric hover:bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-lg transition-all shadow-lg shadow-electric/25 hover:shadow-electric/40 hover:-translate-y-1 text-center">
+                            Jelajahi Layanan
+                        </a>
+                        <a href="https://wa.me/6285647502098" class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-8 py-4 rounded-full font-bold text-lg transition-all backdrop-blur-sm hover:-translate-y-1 text-center">
+                            Konsultasi Gratis
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image Content & Floating Ovals -->
+                <div class="relative mt-12 lg:mt-0 hidden md:flex items-center justify-center min-h-[500px]" data-aos="fade-left" data-aos-delay="200">
+                    <!-- Decorative background element for the image -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-electric to-cyan-400 rounded-[3rem] transform rotate-3 scale-95 opacity-20 blur-xl z-0"></div>
+                    
+                    <!-- Main Image -->
+                    <img src="/images/logo-ome.png" alt="Gedung M1" class="relative z-10 rounded-[2.5rem] shadow-2xl border border-white/10 w-4/5 h-[450px] object-cover" onerror="this.src='https://placehold.co/600x800/1e293b/ffffff?text=Gedung+M1'">
+                    
+                    <!-- Floating Oval 1 (Top Right) -> M1 Solution -->
+                    <div class="absolute -top-4 -right-4 z-20 animate-float glass-oval p-5 min-w-[200px]">
+                        <div class="flex flex-col">
+                            <div class="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                            </div>
+                            <span class="text-white font-semibold text-sm mb-3">M1 Solution</span>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-blue-500 h-1.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Oval 2 (Bottom Left) -> M1 Mobil -->
+                    <div class="absolute bottom-10 -left-10 z-20 animate-float-delayed glass-oval p-5 min-w-[220px]">
+                        <div class="flex flex-col">
+                            <div class="w-10 h-10 rounded-full bg-electric/20 flex items-center justify-center text-electric mb-3">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                            </div>
+                            <span class="text-white font-semibold text-sm mb-3">M1 Bengkel Mobil</span>
+                            <div class="w-full bg-white/10 rounded-full h-1.5">
+                                <div class="bg-electric h-1.5 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Oval 3 (Bottom Right) -> M1 Motor -->
+                    <div class="absolute -bottom-8 right-8 z-20 animate-float-fast glass-oval p-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-racing/20 flex items-center justify-center text-racing shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <div class="pr-2">
+                                <span class="text-white font-semibold text-sm block">M1 Motor</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Oval 4 (Top Left) -> M1 Chemical -->
+                    <div class="absolute top-20 -left-12 z-20 animate-float-slow glass-oval p-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-cyan-400/20 flex items-center justify-center text-cyan-400 shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            </div>
+                            <div class="pr-2">
+                                <span class="text-white font-semibold text-sm block">M1 Chemical</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Layanan Section -->
+    <section id="layanan" class="py-24 bg-navy-900 relative border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Layanan Ekosistem <span class="text-electric">M1</span></h2>
+                <p class="text-lg text-silver max-w-2xl mx-auto">Solusi komprehensif yang dirancang khusus untuk memenuhi standar kualitas tertinggi di setiap sektor.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <a href="/layanan/mobil" class="block card-hover bg-navy-800 rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-navy-950 relative overflow-hidden">
+                        <img src="/images/new-mobil.jpg" alt="Bengkel Mobil" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/1e293b/ffffff?text=Mobil'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="absolute -top-10 left-6 w-14 h-14 bg-navy-900 rounded-xl border border-white/10 flex items-center justify-center text-electric shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-4 group-hover:text-electric transition-colors">M1 Bengkel Mobil</h3>
+                        <p class="text-silver text-sm leading-relaxed">Perawatan berkala, perbaikan mesin, dan tune-up performa tinggi oleh ahli.</p>
+                    </div>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="/layanan/motor" class="block card-hover bg-navy-800 rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-navy-950 relative overflow-hidden">
+                        <img src="/images/new-motor.jpg" alt="Bengkel Motor" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/1e293b/ffffff?text=Motor'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="absolute -top-10 left-6 w-14 h-14 bg-navy-900 rounded-xl border border-white/10 flex items-center justify-center text-racing shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-4 group-hover:text-electric transition-colors">M1 Bengkel Motor</h3>
+                        <p class="text-silver text-sm leading-relaxed">Servis injeksi, modifikasi, dan perawatan roda dua terlengkap.</p>
+                    </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="/layanan/chemical" class="block card-hover bg-navy-800 rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-48 bg-navy-950 relative overflow-hidden">
+                        <img src="/images/new-chemical.jpg" alt="Chemical" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/1e293b/ffffff?text=Chemical'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="absolute -top-10 left-6 w-14 h-14 bg-navy-900 rounded-xl border border-white/10 flex items-center justify-center text-cyan-400 shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-4 group-hover:text-electric transition-colors">M1 Chemical</h3>
+                        <p class="text-silver text-sm leading-relaxed">Bahan kimia otomotif & industri kualitas premium untuk hasil maksimal.</p>
+                    </div>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="/layanan/solution" class="block card-hover bg-navy-800 rounded-2xl border border-white/5 overflow-hidden transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-48 bg-navy-950 relative overflow-hidden">
+                        <img src="/images/new-solution.jpg" alt="Solution" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" onerror="this.src='https://placehold.co/400x300/1e293b/ffffff?text=Solution'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-navy-800 to-transparent"></div>
+                    </div>
+                    <div class="p-6 relative">
+                        <div class="absolute -top-10 left-6 w-14 h-14 bg-navy-900 rounded-xl border border-white/10 flex items-center justify-center text-purple-400 shadow-lg group-hover:scale-110 transition-transform">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2 mt-4 group-hover:text-electric transition-colors">M1 Solution</h3>
+                        <p class="text-silver text-sm leading-relaxed">Software house penyedia solusi digital, pengembangan aplikasi, dan integrasi sistem.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Berita Terkini Section -->
+    <section id="berita" class="py-24 bg-navy-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6" data-aos="fade-up">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">Berita & Pembaruan</h2>
+                    <p class="text-lg text-silver max-w-xl">Ikuti terus informasi, tips otomotif, dan perkembangan terbaru dari ekosistem kami.</p>
+                </div>
+                <a href="/berita" class="inline-flex items-center gap-2 text-electric font-semibold hover:text-white transition-colors">
+                    Lihat Semua Berita 
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+            </div>
+
+            <% if (error) { %>
+                <div class="bg-racing/10 border border-racing/30 p-8 rounded-2xl text-center">
+                    <p class="text-white font-medium"><%= error %></p>
+                </div>
+            <% } else if (posts && posts.length > 0) { %>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <% posts.forEach(post => { %>
+                        <article class="bg-navy-900 rounded-2xl border border-white/5 overflow-hidden group hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-electric/10 flex flex-col h-full" data-aos="fade-up">
+                            <div class="aspect-w-16 aspect-h-10 bg-navy-800 relative overflow-hidden shrink-0">
+                                <% if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) { %>
+                                    <img src="<%= post._embedded['wp:featuredmedia'][0].source_url %>" alt="<%= post.title.rendered %>" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+                                <% } else { %>
+                                    <div class="w-full h-56 flex items-center justify-center bg-navy-800/50">
+                                        <span class="text-silver/50 font-medium">M1 Media</span>
+                                    </div>
+                                <% } %>
+                                <div class="absolute inset-0 bg-gradient-to-t from-navy-900 to-transparent opacity-80"></div>
+                            </div>
+                            
+                            <div class="p-6 relative -mt-8 flex flex-col flex-grow">
+                                <div class="inline-block bg-electric text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide mb-4 shadow-lg shadow-electric/30 self-start">
+                                    Berita
+                                </div>
+                                <h3 class="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-electric transition-colors">
+                                    <a href="/berita/<%= post.slug %>" class="focus:outline-none">
+                                        <span class="absolute inset-0"></span>
+                                        <%- sanitize(post.title.rendered) %>
+                                    </a>
+                                </h3>
+                                <div class="text-silver text-sm mb-6 line-clamp-3 flex-grow">
+                                    <%- sanitize(post.excerpt.rendered) %>
+                                </div>
+                                <div class="flex items-center text-sm font-semibold text-white group-hover:text-electric transition-colors mt-auto">
+                                    Baca Selengkapnya 
+                                    <svg class="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                                </div>
+                            </div>
+                        </article>
+                    <% }) %>
+                </div>
+            <% } else { %>
+                <div class="text-center py-16 bg-navy-900/50 rounded-2xl border border-white/5 border-dashed">
+                    <p class="text-silver font-medium">Belum ada berita saat ini.</p>
+                </div>
+            <% } %>
+        </div>
+    </section>
+
+    <!-- Footer Consistent -->
+    <%- include('partials/footer') %>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 50,
+        });
+    </script>
+</body>
+</html>
