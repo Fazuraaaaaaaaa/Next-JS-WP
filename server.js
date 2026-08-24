@@ -8,6 +8,8 @@ const compression = require('compression');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const WP_API_URL = process.env.WP_API_URL || 'http://m-one.local/wp-json/wp/v2';
+const WP_USER = process.env.WP_USER || '';
+const WP_PASS = process.env.WP_PASS || '';
 
 // Middleware for security and performance
 app.use(helmet({ 
@@ -20,6 +22,16 @@ app.use(compression());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Helper: Build fetch headers with optional Basic Auth
+const fetchHeaders = () => {
+    const headers = { 'Content-Type': 'application/json' };
+    if (WP_USER && WP_PASS) {
+        const encoded = Buffer.from(`${WP_USER}:${WP_PASS}`).toString('base64');
+        headers['Authorization'] = `Basic ${encoded}`;
+    }
+    return headers;
+};
 
 // Helper: Sanitize HTML content to prevent XSS
 app.locals.sanitize = (dirty) => sanitizeHtml(dirty, {
@@ -37,7 +49,7 @@ app.locals.sanitize = (dirty) => sanitizeHtml(dirty, {
 app.get('/', async (req, res) => {
     try {
         // Fetch 3 latest posts with embedded media
-        const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=3`);
+        const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=3`, { headers: fetchHeaders() });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const posts = await response.json();
         res.render('index', { posts, error: null });
@@ -51,7 +63,7 @@ app.get('/', async (req, res) => {
 // Route 2: Daftar Berita
 app.get('/berita', async (req, res) => {
     try {
-        const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=12`);
+        const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=12`, { headers: fetchHeaders() });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const posts = await response.json();
         res.render('berita', { posts, error: null });
@@ -66,7 +78,7 @@ app.get('/berita/:slug', async (req, res) => {
     try {
         const { slug } = req.params;
         // Fetch specific post by slug with embedded media
-        const response = await fetch(`${WP_API_URL}/posts?slug=${slug}&_embed`);
+        const response = await fetch(`${WP_API_URL}/posts?slug=${slug}&_embed`, { headers: fetchHeaders() });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const posts = await response.json();
         
