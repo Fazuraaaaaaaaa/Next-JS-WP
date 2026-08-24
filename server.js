@@ -170,6 +170,11 @@ app.use((req, res) => {
     res.status(404).render('404');
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running gracefully on http://localhost:${PORT}`);
-});
+// Start server locally; export for Vercel serverless
+if (process.env.VERCEL) {
+    module.exports = app;
+} else {
+    app.listen(PORT, () => {
+        console.log(`Server is running gracefully on http://localhost:${PORT}`);
+    });
+}
