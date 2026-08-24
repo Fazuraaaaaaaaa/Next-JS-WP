@@ -13,6 +13,7 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "helmet": "^7.1.0",
-    "sanitize-html": "^2.11.0"
+    "htmlparser2": "8.0.2",
+    "sanitize-html": "2.11.0"
   }
 }
