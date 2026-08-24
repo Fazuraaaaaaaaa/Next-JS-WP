@@ -31,6 +31,16 @@ const fetchHeaders = () => {
     return headers;
 };
 
+// Helper: Replace local WP image URLs with Live Link URL
+const fixImageUrls = (obj) => {
+    const localUrl = process.env.WP_LOCAL_URL || 'http://m-one.local';
+    const publicUrl = process.env.WP_PUBLIC_URL || localUrl;
+    if (!obj || localUrl === publicUrl) return obj;
+    const str = JSON.stringify(obj);
+    const fixed = str.split(localUrl).join(publicUrl);
+    return JSON.parse(fixed);
+};
+
 // Helper: Sanitize HTML content to prevent XSS
 app.locals.sanitize = (dirty) => sanitizeHtml(dirty, {
     allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'figure', 'figcaption', 'iframe']),
@@ -50,7 +60,7 @@ app.get('/', async (req, res) => {
         const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=3`, { headers: fetchHeaders() });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const posts = await response.json();
-        res.render('index', { posts, error: null });
+        res.render('index', { posts: fixImageUrls(posts), error: null });
     } catch (error) {
         console.error('Error fetching from WP:', error.message);
         // Prevent server crash, send empty posts and error message
@@ -64,7 +74,7 @@ app.get('/berita', async (req, res) => {
         const response = await fetch(`${WP_API_URL}/posts?_embed&per_page=12`, { headers: fetchHeaders() });
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const posts = await response.json();
-        res.render('berita', { posts, error: null });
+        res.render('berita', { posts: fixImageUrls(posts), error: null });
     } catch (error) {
         console.error('Error fetching from WP:', error.message);
         res.render('berita', { posts: [], error: 'Gagal memuat berita terbaru. Silakan coba beberapa saat lagi.' });
@@ -84,7 +94,7 @@ app.get('/berita/:slug', async (req, res) => {
             return res.status(404).render('detail', { post: null, error: 'Artikel tidak ditemukan.' });
         }
         
-        res.render('detail', { post: posts[0], error: null });
+        res.render('detail', { post: fixImageUrls(posts[0]), error: null });
     } catch (error) {
         console.error('Error fetching post:', error.message);
         // Handle error gracefully
