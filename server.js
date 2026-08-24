@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const sanitizeHtml = require('sanitize-html');
 const helmet = require('helmet');
-const compression = require('compression');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -16,8 +15,7 @@ app.use(helmet({
     contentSecurityPolicy: false,
     crossOriginEmbedderPolicy: false,
     crossOriginResourcePolicy: false
-})); // Disabled CSP, COEP, and CORP temporarily for external images/CDNs and iframes
-app.use(compression());
+}));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -170,10 +168,10 @@ app.use((req, res) => {
     res.status(404).render('404');
 });
 
-// Start server locally; export for Vercel serverless
-if (process.env.VERCEL) {
-    module.exports = app;
-} else {
+// Export for Vercel serverless, listen for local dev
+module.exports = app;
+
+if (!process.env.VERCEL) {
     app.listen(PORT, () => {
         console.log(`Server is running gracefully on http://localhost:${PORT}`);
     });
